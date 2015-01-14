@@ -29,6 +29,11 @@ def piecewise(f, g, b):
     1
     """
     "*** YOUR CODE HERE ***"
+    def helper(x):
+        if x < b:
+            return f(x)
+        return g(x)
+    return helper
 
 def intersects(f, x):
     """Returns a function that returns whether f intersects g at x.
@@ -45,6 +50,11 @@ def intersects(f, x):
     False
     """
     "*** YOUR CODE HERE ***"
+    def second_fn(fn):
+        if fn(x) == f(x):
+            return True
+        return False
+    return second_fn
 
 def repeated(f, n):
     """Return the function that computes the nth application of f.
@@ -60,6 +70,14 @@ def repeated(f, n):
     152587890625
     """
     "*** YOUR CODE HERE ***"
+    def gets_num(x):
+        result,i = x,n
+        while i > 0:
+            result = f(result)
+            i -= 1
+        return result
+    return gets_num
+    
 
 ###################
 # Church Numerals #
