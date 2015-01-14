@@ -19,7 +19,7 @@ def two_equal(a, b, c):
 
     """
     "*** YOUR CODE HERE ***"
-
+    return (a == b) or (a == c) or (b == c) 
 
 def same_hailstone(a, b):
     """Return whether a and b are both members of the same hailstone
@@ -35,6 +35,18 @@ def same_hailstone(a, b):
 
     """
     "*** YOUR CODE HERE ***"
+    if a > b:
+        small,big = b,a
+    else:
+        small,big = a,b
+    result = False
+    while big != 1:
+        if (big % 2 == 0):
+            big //= 2
+        else:
+            big = n1*3 + 1
+    return steps
+    
 
 
 def near_golden(perimeter):
