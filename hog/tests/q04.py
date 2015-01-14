@@ -9,7 +9,7 @@ test = {
     [
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> score0, score1, start = bid_for_start(1, 1, goal=100) # start can be 0 or 1
         >>> score0
         45c3dfe5cfe404cc9d7c2d858c9ddfce
@@ -22,7 +22,7 @@ test = {
       },
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> score0, score1, start = bid_for_start(2, 7, goal=100)
         >>> score0
         aa5583c8c6d4fd34018f09900374ac68
@@ -38,7 +38,7 @@ test = {
       },
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> score0, score1, start = bid_for_start(8, 3, goal=100)
         >>> score0
         0d67364f3a6639e82e67af0673b4cc6e
@@ -54,7 +54,7 @@ test = {
       },
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> score0, score1, start = bid_for_start(4, 3, goal=100)
         >>> score0
         55276f8aa6de04cbfb3423b6224f512b
@@ -70,7 +70,7 @@ test = {
       },
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> score0, score1, start = bid_for_start(3, 4, goal=100)
         >>> score0
         b1dfe57e56297284419307592a8af908

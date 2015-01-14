@@ -9,7 +9,7 @@ test = {
     [
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> dice = make_test_dice(3, 1, 5, 6)
         >>> averaged_dice = make_averaged(dice, 1000)
         >>> averaged_dice()  # average of calling dice 1000 times
@@ -20,7 +20,7 @@ test = {
       },
       {
         'never_lock': True,
-        'test': """
+        'test': r"""
         >>> dice = make_test_dice(3, 1, 5, 6)
         >>> averaged_roll_dice = make_averaged(roll_dice, 1000)
         >>> averaged_roll_dice(2, dice)
@@ -28,9 +28,6 @@ test = {
         """,
         'type': 'doctest'
       }
-    ],
-    [
-    
     ]
   ]
 }

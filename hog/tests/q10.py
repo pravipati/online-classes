@@ -3,7 +3,7 @@ test = {
     'q10',
     '10'
   ],
-  'note': """
+  'note': r"""
   Tests for Q10 are not included with ok.
   Submit your project to receive results by email.
   """,
@@ -12,16 +12,5 @@ test = {
       'setup': "print('True average win rate of final_strategy is', win_rate)"
     }
   },
-  'points': 3,
-  'suites': [
-    [
-    
-    ],
-    [
-    
-    ],
-    [
-    
-    ]
-  ]
+  'points': 3
 }

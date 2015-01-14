@@ -9,7 +9,7 @@ test = {
     [
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> select_dice(4, 24) == six_sided
         b06675f84ffdb5e2bb8bff43dc1a0f46
         # locked
@@ -18,7 +18,7 @@ test = {
       },
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> select_dice(16, 64) == six_sided
         011e6a022b3155f85730a33e529457ef
         # locked
@@ -27,7 +27,7 @@ test = {
       },
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> select_dice(0, 0) == six_sided
         b06675f84ffdb5e2bb8bff43dc1a0f46
         # locked
@@ -36,7 +36,7 @@ test = {
       },
       {
         'locked': True,
-        'test': """
+        'test': r"""
         >>> select_dice(50, 80) == six_sided
         011e6a022b3155f85730a33e529457ef
         # locked

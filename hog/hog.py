@@ -20,6 +20,18 @@ def roll_dice(num_rolls, dice=six_sided):
     assert type(num_rolls) == int, 'num_rolls must be an integer.'
     assert num_rolls > 0, 'Must roll at least once.'
     "*** YOUR CODE HERE ***"
+    outcome = 0
+    pig_out = 0
+    while num_rolls > 0:
+        this_roll = dice()
+        if this_roll == 1:
+            pig_out = 1
+        outcome += this_roll
+        num_rolls -= 1
+    if pig_out:
+        return 1
+    return outcome
+
 
 def take_turn(num_rolls, opponent_score, dice=six_sided):
     """Simulate a turn rolling NUM_ROLLS dice, which may be 0 (Free bacon).
