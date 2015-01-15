@@ -20,8 +20,7 @@ def roll_dice(num_rolls, dice=six_sided):
     assert type(num_rolls) == int, 'num_rolls must be an integer.'
     assert num_rolls > 0, 'Must roll at least once.'
     "*** YOUR CODE HERE ***"
-    outcome = 0
-    pig_out = 0
+    outcome, pig_out = 0, 0
     while num_rolls > 0:
         this_roll = dice()
         if this_roll == 1:
@@ -45,6 +44,13 @@ def take_turn(num_rolls, opponent_score, dice=six_sided):
     assert num_rolls <= 10, 'Cannot roll more than 10 dice.'
     assert opponent_score < 100, 'The game should be over.'
     "*** YOUR CODE HERE ***"
+    def zero_rolls(op_score):
+        if op_score < 10:
+            return op_score + 1
+        return abs((op_score // 10) - (op_score % 10)) + 1
+    if num_rolls == 0:
+        return zero_rolls(opponent_score)
+    return roll_dice(num_rolls, dice)
 
 def select_dice(score, opponent_score):
     """Select six-sided dice unless the sum of SCORE and OPPONENT_SCORE is a
