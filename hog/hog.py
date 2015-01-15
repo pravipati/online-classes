@@ -217,13 +217,13 @@ def run_experiments():
         four_sided_max = max_scoring_num_rolls(four_sided)
         print('Max scoring num rolls for four-sided dice:', four_sided_max)
 
-    if True: # Change to True to test always_roll(8)
+    if False: # Change to True to test always_roll(8)
         print('always_roll(8) win rate:', average_win_rate(always_roll(8)))
 
     if False: # Change to True to test bacon_strategy
         print('bacon_strategy win rate:', average_win_rate(bacon_strategy))
 
-    if False: # Change to True to test swap_strategy
+    if True: # Change to True to test swap_strategy
         print('swap_strategy win rate:', average_win_rate(swap_strategy))
 
     if False: # Change to True to test final_strategy
@@ -251,9 +251,7 @@ def swap_strategy(score, opponent_score, margin=8, num_rolls=5):
     """
     "*** YOUR CODE HERE ***"
     bacon_score = abs((opponent_score // 10) - (opponent_score % 10)) + 1
-    if ((score + 1) * 2 == opponent_score):
-        return 0
-    elif ((score + bacon_score) * 2 == opponent_score):
+    if ((score + bacon_score) * 2 == opponent_score):
         return 0
     else:
         if (bacon_score + score != 2 * opponent_score):
