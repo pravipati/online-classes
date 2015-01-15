@@ -57,8 +57,9 @@ def select_dice(score, opponent_score):
     multiple of 7, in which case select four-sided dice (Hog wild).
     """
     "*** YOUR CODE HERE ***"
-    if ((score + opponent_score) % 7 == 0):
-        return four_sided
+    if (score > 0 or opponent_score > 0):
+        if ((score + opponent_score) % 7 == 0):
+            return four_sided
     return six_sided
 
 def bid_for_start(bid0, bid1, goal=GOAL_SCORE):
@@ -93,6 +94,13 @@ def other(who):
     """
     return 1 - who
 
+def always(n):
+    def strat(y, z):
+        return n
+    return strat
+
+always_roll = always
+
 def play(strategy0, strategy1, score0=0, score1=0, goal=GOAL_SCORE):
     """Simulate a game and return the final scores of both players, with
     Player 0's score first, and Player 1's score second.
@@ -108,6 +116,15 @@ def play(strategy0, strategy1, score0=0, score1=0, goal=GOAL_SCORE):
     """
     who = 0  # Which player is about to take a turn, 0 (first) or 1 (second)
     "*** YOUR CODE HERE ***"
+    while ((score0 < 100) and (score1 < 100)):
+        if (who == 0):
+            score0 += take_turn(strategy0(score0, score1), score1, select_dice(score0, score1))
+        else:
+            score1 += take_turn(strategy1(score1, score0), score0, select_dice(score1, score0))
+        if ((score0 * 2 == score1) or (score1 * 2 == score0)):
+            if score0 != 0:
+                 score0, score1 = score1, score0
+        who = other(who)
     return score0, score1  # You may want to change this line.
 
 #######################

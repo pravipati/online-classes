@@ -13,14 +13,13 @@ test = {
   'suites': [
     [
       {
-        'answer': '353222728f4212135d051c71d83b64c0',
+        'answer': 'While score0 and score1 are both less than goal',
         'choices': [
           'While score0 and score1 are both less than goal',
           'While at least one of score0 or score1 is less than goal',
           'While score0 is less than goal',
           'While score1 is less than goal'
         ],
-        'locked': True,
         'question': r"""
         The variables score0 and score1 are the scores for both
         players. Under what conditions should the game continue?
@@ -28,14 +27,13 @@ test = {
         'type': 'concept'
       },
       {
-        'answer': '0b7326c1fa456698ab316b845031a4a5',
+        'answer': 'strategy1(score1, score0)',
         'choices': [
           'strategy1(score1, score0)',
           'strategy1(score0, score1)',
           'strategy1(score1)',
           'strategy1(score0)'
         ],
-        'locked': True,
         'question': r"""
         If strategy1 is Player 1's strategy function, score0 is
         Player 0's current score, and score1 is Player 1's current
@@ -45,7 +43,7 @@ test = {
         'type': 'concept'
       },
       {
-        'answer': '02e713b742d935bc81a0e54743c46aae',
+        'answer': "After the current player takes her turn, and if either player's score is double the other player's score",
         'choices': [
           r"""
           After the current player takes her turn, and if either
@@ -64,7 +62,6 @@ test = {
           current player's score is double her opponent's score
           """
         ],
-        'locked': True,
         'question': 'Recall the "swine swap" rule. When does this rule apply?',
         'type': 'concept'
       },
