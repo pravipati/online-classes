@@ -73,15 +73,15 @@ def bid_for_start(bid0, bid1, goal=GOAL_SCORE):
 
     # The buggy code is below:
     if bid0 == bid1:
-        return 0, goal, goal
-    if bid0 == bid1 - 5:
-        return 0, 0, 0
-    if bid1 == bid0 + 5:
-        return 10, 0, 1
-    if bid1 > bid0:
+        return goal, goal, 0
+    elif (abs(bid0 - bid1)) == 5:
+        if bid0 > bid1:
+            return 10, 0, 0
+        return 0, 10, 1
+    elif bid0 > bid1:
         return bid1, bid0, 0
     else:
-        return bid0, bid1, 1
+        return bid1, bid0, 1
 
 def other(who):
     """Return the other player, for a player WHO numbered 0 or 1.
