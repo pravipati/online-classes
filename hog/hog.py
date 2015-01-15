@@ -250,8 +250,15 @@ def swap_strategy(score, opponent_score, margin=8, num_rolls=5):
     NUM_ROLLS otherwise.
     """
     "*** YOUR CODE HERE ***"
-    return None # Replace this statement
-
+    bacon_score = abs((opponent_score // 10) - (opponent_score % 10)) + 1
+    if ((score + 1) * 2 == opponent_score):
+        return 0
+    elif ((score + bacon_score) * 2 == opponent_score):
+        return 0
+    else:
+        if (bacon_score + score != 2 * opponent_score):
+            return bacon_strategy(score, opponent_score, margin, num_rolls)
+        return num_rolls
 
 def final_strategy(score, opponent_score):
     """Write a brief description of your final strategy.
