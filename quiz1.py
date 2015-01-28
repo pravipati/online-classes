@@ -62,5 +62,16 @@ def near_golden(perimeter):
 
     """
     "*** YOUR CODE HERE ***"
-
+    smallest_diff = 10
+    result = "none"
+    h = (perimeter / 2) - 1
+    w = 1
+    while h > 1:
+        if (abs((h / w) - ((w / h) - 1)) < smallest_diff):
+            result = h
+            smallest_diff = (abs((h / w) - ((w / h) - 1)) < smallest_diff)
+        h -= 1
+        w += 1
+    return result
+        
 

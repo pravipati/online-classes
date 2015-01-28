@@ -217,16 +217,16 @@ def run_experiments():
         four_sided_max = max_scoring_num_rolls(four_sided)
         print('Max scoring num rolls for four-sided dice:', four_sided_max)
 
-    if False: # Change to True to test always_roll(8)
+    if True: # Change to True to test always_roll(8)
         print('always_roll(8) win rate:', average_win_rate(always_roll(8)))
 
-    if False: # Change to True to test bacon_strategy
+    if True: # Change to True to test bacon_strategy
         print('bacon_strategy win rate:', average_win_rate(bacon_strategy))
 
     if True: # Change to True to test swap_strategy
         print('swap_strategy win rate:', average_win_rate(swap_strategy))
 
-    if False: # Change to True to test final_strategy
+    if True: # Change to True to test final_strategy
         print('final_strategy win rate:', average_win_rate(final_strategy))
 
     "*** You may add additional experiments as you wish ***"
@@ -258,14 +258,31 @@ def swap_strategy(score, opponent_score, margin=8, num_rolls=5):
             return bacon_strategy(score, opponent_score, margin, num_rolls)
         return num_rolls
 
-def final_strategy(score, opponent_score):
+def final_strategy(score, opponent_score, margin=8, num_rolls=5):
     """Write a brief description of your final strategy.
 
     *** YOUR DESCRIPTION HERE ***
     """
     "*** YOUR CODE HERE ***"
-    return 5 # Replace this statement
-
+    bacon_score = abs((opponent_score // 10) - (opponent_score % 10)) + 1
+    def drive_wild(curr_score, opp_score):
+        if (((score + bacon_score + opponent_score) % 7) == 0):
+            return 0
+        elif (((score + 1 + opponent_score) % 7) == 0):
+            return 10
+    drive_wild(score, opponent_score) # Opportunistic defensive procedure to induce Hog Wild for opponent
+    if ((score + opponent_score) % 7 == 0): # Checks if this turn is with 4-sided dice (currently Hog Wild) or 6-sided dice 
+        if (score > opponent_score):
+            return swap_strategy(score, opponent_score, margin=8, num_rolls=4)
+        else:
+            return swap_strategy(score, opponent_score, margin=8, num_rolls=5)
+    else:
+        if (score > opponent_score):
+            return swap_strategy(score, opponent_score, margin=8, num_rolls=6)
+        else:
+            return swap_strategy(score, opponent_score, margin=8, num_rolls=7)
+    return num_rolls # Replace this statement
+    
 
 ##########################
 # Command Line Interface #
